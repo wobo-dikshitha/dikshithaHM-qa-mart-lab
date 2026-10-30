@@ -58,13 +58,21 @@ qamart-testing-plugin/
 
 Prerequisites: Node.js 20 or newer, the QA Mart repository with dependencies installed (`npm install`), and VS Code with GitHub Copilot Chat.
 
-1. Enable plugins and register this folder in your VS Code user settings (both settings are experimental):
+Quick install (Copilot CLI), from the repository root:
+
+```powershell
+copilot plugin install ./qamart-testing-plugin
+```
+
+Or install from GitHub after pushing the repo: `copilot plugin install <owner>/<repo>:qamart-testing-plugin`.
+
+1. In VS Code, enable plugins and register this folder in your user settings (both settings are experimental). Use the absolute path of your clone:
 
    ```json
    {
      "chat.plugins.enabled": true,
      "chat.pluginLocations": {
-       "C:/projects/qa-mart-updated/qa-mart-lab-updated/qamart-testing-plugin": true
+       "C:/path/to/qa-mart-lab/qamart-testing-plugin": true
      }
    }
    ```
@@ -223,6 +231,11 @@ Use the QA Mart Test Generator to automate TC-CHECKOUT-001 and TC-CHECKOUT-003.
 Use the QA Mart Test Reviewer to review tests/lab/checkout.spec.ts.
 Use QA Mart Bug Triage on the failing FLAT100 test. Trace: test-results/<test-folder>/trace.zip
 ```
+
+## 60-Second Demo
+
+1. `npm start`, then in chat run `/login-tests` with scope `US-104 sign-in`.
+2. The generated [tests/lab/login.spec.ts](../tests/lab/login.spec.ts) passes: `npx playwright test tests/lab/login.spec.ts` (4 passed).
 
 ## Known Limits
 
